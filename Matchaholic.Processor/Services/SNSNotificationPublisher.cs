@@ -3,7 +3,6 @@ using Amazon.Runtime;
 using Amazon.SimpleNotificationService;
 using Amazon.SimpleNotificationService.Model;
 using Matchaholic.Processor.Model;
-using Matchaholic.Processor.Model.MobilePush;
 using Matchaholic.Processor.Model.Setings;
 using Matchaholic.Processor.Services.Interfaces;
 using Microsoft.Extensions.Options;
