@@ -19,9 +19,9 @@ namespace Matchaholic.Processor
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                var publishResponse = await _notificationPublisher.PublishNotification(new Match
+                _ = await _notificationPublisher.PublishNotification(new Match
                 {
-                   Description = "Hamburger SV vs Sandhausen 1-0"
+                    Description = "Hamburger SV vs Sandhausen 1-0"
                 });
                 await Task.Delay(1000, stoppingToken);
             }
