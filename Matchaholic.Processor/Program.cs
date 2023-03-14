@@ -10,6 +10,7 @@ IHost host = Host.CreateDefaultBuilder(args)
             IConfiguration configuration = hostContext.Configuration;
             services.Configure<SNSSettings>(configuration.GetSection("SNS"));
             services.AddSingleton<INotificationPublisher, SNSNotificationPublisher>();
+            services.AddScoped<IMatchImportService, MatchImportService>();
             services.AddHostedService<Worker>();
         }).UseSerilog((context, _, config) =>
         {

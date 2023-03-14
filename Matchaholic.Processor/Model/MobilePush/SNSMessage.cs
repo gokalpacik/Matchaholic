@@ -2,7 +2,7 @@
 
 using System.Text.Json.Serialization;
 
-namespace Matchaholic.Processor.Model
+namespace Matchaholic.Processor.Model.MobilePush
 {
     public class SNSMessage
     {
@@ -11,7 +11,7 @@ namespace Matchaholic.Processor.Model
 
         [JsonPropertyName("GCM")]
         public string FCMContent { get; set; }
-               
+
 
         public SNSMessage(string defaultContent)
         {

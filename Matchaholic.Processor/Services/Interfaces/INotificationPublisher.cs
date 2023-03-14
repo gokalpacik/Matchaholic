@@ -1,5 +1,5 @@
 ﻿using Amazon.SimpleNotificationService.Model;
-using Matchaholic.Processor.Model;
+using Matchaholic.Processor.Model.Match;
 
 namespace Matchaholic.Processor.Services.Interfaces
 {
