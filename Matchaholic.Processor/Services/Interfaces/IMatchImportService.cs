@@ -1,8 +1,9 @@
-﻿namespace Matchaholic.Processor.Services.Interfaces
+﻿using Matchaholic.Processor.Model.Match;
+
+namespace Matchaholic.Processor.Services.Interfaces
 {
     public interface IMatchImportService
     {
-        Task ImportMatch();
-
+        Task<Match?> GetMatchDetail(int goalOrder);
     }
 }

@@ -63,9 +63,9 @@ namespace Matchaholic.Processor.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] first_goal {
+        internal static byte[] goal1 {
             get {
-                object obj = ResourceManager.GetObject("first_goal", resourceCulture);
+                object obj = ResourceManager.GetObject("goal1", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Matchaholic.Processor.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] second_goal {
+        internal static byte[] goal2 {
             get {
-                object obj = ResourceManager.GetObject("second_goal", resourceCulture);
+                object obj = ResourceManager.GetObject("goal2", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Matchaholic.Processor.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] third_goal {
+        internal static byte[] goal3 {
             get {
-                object obj = ResourceManager.GetObject("third_goal", resourceCulture);
+                object obj = ResourceManager.GetObject("goal3", resourceCulture);
                 return ((byte[])(obj));
             }
         }
