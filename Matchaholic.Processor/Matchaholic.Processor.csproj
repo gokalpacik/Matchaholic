@@ -8,15 +8,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Remove="Resources\first-goal.json" />
-	  <Content Remove="Resources\second-goal.json" />
-	  <Content Remove="Resources\third-goal.json" />
+	  <Content Remove="Resources\goal1.json" />
+	  <Content Remove="Resources\goal2.json" />
+	  <Content Remove="Resources\goal3.json" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="Resources\first-goal.json" />
-	  <EmbeddedResource Include="Resources\second-goal.json" />
-	  <EmbeddedResource Include="Resources\third-goal.json" />
+	  <EmbeddedResource Include="Resources\goal1.json" />
+	  <EmbeddedResource Include="Resources\goal2.json" />
+	  <EmbeddedResource Include="Resources\goal3.json" />
 	</ItemGroup>
 
 	<ItemGroup>

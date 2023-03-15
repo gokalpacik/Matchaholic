@@ -1,8 +1,6 @@
-﻿using Amazon.Auth.AccessControlPolicy;
-using Matchaholic.Processor.Model.Match;
+﻿using Matchaholic.Processor.Model.Match;
 using Matchaholic.Processor.Resources;
 using Matchaholic.Processor.Services.Interfaces;
-using System.Text;
 using System.Text.Json;
 
 namespace Matchaholic.Processor.Services
@@ -14,11 +12,11 @@ namespace Matchaholic.Processor.Services
             PropertyNameCaseInsensitive = true
         };
 
-        public Task ImportMatch()
+        public Task<Match?> GetMatchDetail(int goalOrder)
         {
-            //var test = ExampleData.ResourceManager.GetObject("first_goal", System.Globalization.CultureInfo.CurrentCulture);
-            var match = JsonSerializer.Deserialize<Match>(Encoding.UTF8.GetString(ExampleData.first_goal), jsonSerializerCaseInsensitiveOption);
-            return Task.CompletedTask;
+            var test = ExampleData.ResourceManager.GetObject($"goal{goalOrder}", System.Globalization.CultureInfo.CurrentCulture);            
+            var match= JsonSerializer.Deserialize<Match>((byte[])test!, jsonSerializerCaseInsensitiveOption);
+            return Task.FromResult(match);
         }
     }
 }

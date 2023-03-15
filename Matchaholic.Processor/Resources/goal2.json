@@ -105,13 +105,9 @@
         "ht": {
           "home": 0,
           "away": 0
-        },
-        "ft": {
-          "home": 2,
-          "away": 1
-        },
+        },       
         "total": {
-          "home": 2,
+          "home": 1,
           "away": 1
         }
       }
@@ -130,6 +126,22 @@
         "optaEventId": "2328646979",
         "homeScore": 1,
         "awayScore": 0
+      },
+      {
+        "contestantId": "884uzyf1wosc7ykji6e18gifp",
+        "periodId": 2,
+        "timeMin": 87,
+        "timeMinSec": "86:57",
+        "lastUpdated": "2021-09-11T20:17:02Z",
+        "timestamp": "2021-09-11T20:16:10Z",
+        "type": "G",
+        "scorerId": "2np4n7d10f0jsgor0zbs5acwl",
+        "scorerName": "J. Bachmann",
+        "assistPlayerId": "6hh1y9t572yqk7d1zegi0hm5m",
+        "assistPlayerName": "C. Conteh",
+        "optaEventId": "2328657401",
+        "homeScore": 1,
+        "awayScore": 1
       }
     ],
     "card": [
