@@ -1,5 +1,6 @@
 using Matchaholic.Processor.Model;
 using Matchaholic.Processor.Model.Match;
+using Matchaholic.Processor.Model.MobilePush;
 using Matchaholic.Processor.Services.Interfaces;
 
 namespace Matchaholic.Processor
@@ -34,12 +35,13 @@ namespace Matchaholic.Processor
                     var match = await matchImportService.GetMatchDetail(goalOrder);
                     goalOrder++;
 
-                    var notification = GetGoalNotification(match);
-                    if (notification != null)
+                    var notificationMessage = GetGoalNotificationMessage(match);
+                    if (notificationMessage != null)
                     {
-                        _ = await _notificationPublisher.PublishNotification(new Match
+                        _ = await _notificationPublisher.PublishNotification(new Notification
                         {
-                            Description = notification
+                            Title = "GOALLLL!!!!!!",
+                            Body = notificationMessage
                         });
                     }                   
                 }
@@ -48,7 +50,7 @@ namespace Matchaholic.Processor
             }
         }
 
-        private static string? GetGoalNotification(Match? match)
+        private static string? GetGoalNotificationMessage(Match? match)
         {
             var description = match?.MatchInfo.Description;
             var homeScore = match?.LiveData?.Goal?.LastOrDefault()?.HomeScore;
@@ -58,7 +60,7 @@ namespace Matchaholic.Processor
 
             if (IsInvalidGoalInfo(description, homeScore, awayScore, scorerName, minute)) return null;
 
-            var goalNotification = $"{description} ({homeScore}-{awayScore}) GOALLLL!! {scorerName} scores in {minute}'";
+            var goalNotification = $"{description} ({homeScore}-{awayScore}) {scorerName} scores in {minute}'";
             return goalNotification;
         }
 
