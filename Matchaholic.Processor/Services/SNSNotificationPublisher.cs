@@ -3,9 +3,12 @@ using Amazon.Runtime;
 using Amazon.SimpleNotificationService;
 using Amazon.SimpleNotificationService.Model;
 using Matchaholic.Processor.Model.Match;
+using Matchaholic.Processor.Model.MobilePush;
 using Matchaholic.Processor.Model.Setings;
 using Matchaholic.Processor.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Microsoft.Extensions.Options;
+using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace Matchaholic.Processor.Services
@@ -33,16 +36,28 @@ namespace Matchaholic.Processor.Services
             );
         }
 
-        public async Task<PublishResponse> PublishNotification(Match eventData)
+        public async Task<PublishResponse> PublishNotification(Notification notification)
         {
             try
             {
-                var publishRequest = new PublishRequest
+                PublishRequest publishRequest = new();
+
+                SNSMessage message = new(JsonSerializer.Serialize(notification))
                 {
-                    TopicArn = _snsSettings.TopicArn,
-                    Message = JsonSerializer.Serialize(eventData),
-                    Subject = $"Goal!!!!!"
+                    FCMContent = new FCMNotification()
+                    {
+                        Notification = new MobilePushNotification(
+                        notification.Title,
+                        notification.Body
+                        ),
+                        Data = new Dictionary<string, string> {
+                        { "time_to_live", "3600" }
+                    }
+                    }.ToString()
                 };
+                publishRequest.TopicArn = _snsSettings.TopicArn;
+                publishRequest.MessageStructure = "json";
+                publishRequest.Message = JsonSerializer.Serialize(message);
 
                 PublishResponse publishResponse = await _snsClient.PublishAsync(publishRequest);
                 return publishResponse;
